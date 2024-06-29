@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1616 Numerology</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <img src="./img/logo.jpg" alt="1616 Numerology Logo" class="logo">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#services">Dịch vụ</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Khám phá bản thân qua lăng kính của những con số</h1>
+                <p>Đưa ra các báo cáo và lời khuyên chính xác về thần số học</p>
+                <a href="#contact" class="btn">Đăng ký ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="fade-in">
+        <div class="container">
+            <h2>Giới thiệu về Thần Số học</h2>
+            <p>Phân tích ngày sinh, tên gọi và các yếu tố khác, Thần Số học giúp bạn khám phá sâu hơn về bản thân, từ tính cách, sở thích đến khả năng và điểm mạnh, điểm yếu của mình.</p>
+            <h2>Sứ mệnh</h2>
+            <p>Một triệu người phát triển tối đa tài năng</p>
+            <h2>Giá trị cốt lõi</h2>
+            <p>Hạnh phúc - Biết ơn - Vui vẻ - Tin tưởng - Yêu thương</p>
+        </div>
+    </section>
+
+    <section id="services" class="fade-in">
+        <div class="container">
+            <h2>Dịch vụ nổi bật</h2>
+            <div class="box-container">
+                <div class="box">
+                    <h3>A. Cung cấp Bản báo cáo và luận giải</h3>
+                    <p>Chúng tôi sẽ gửi 01 bản báo cáo Thần số học dành riêng cho bạn, ngoài ra chúng tôi còn cung cấp thêm những dịch vụ khác, cam kết giúp bạn ứng dụng không chỉ Thần số mà còn những văn hóa lành mạnh vào cuộc sống.</p>
+                    <ul>
+                        <li>Bản báo cáo 70 trang</li>
+                        <li>03 buổi Cafe coach 1:2</li>
+                        <li>Tham gia CLB thể thao</li>
+                        <li>Tham gia nhóm văn hóa lối sống</li>
+                        <li>Giới thiệu được 100k/bạn</li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <h3>B. Khóa học Thần số</h3>
+                    <p>Khóa học kéo dài 03 tháng, học và thực hành, kèm theo đó là những dịch vụ cực kỳ hấp dẫn.</p>
+                    <ul>
+                        <li>03 tháng học và thực hành</li>
+                        <li>Sổ tay Thần số, 01 bản Báo cáo Thần số</li>
+                        <li>03 chuyến du lịch</li>
+                        <li>Tham gia nhóm văn hóa lối sống</li>
+                        <li>Giới thiệu được tặng một vouche trị giá 1 triệu VND</li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <h3>C. Trở thành đại lý</h3>
+                    <p>Đặc quyền trở thành đại lý của đội nhóm 1616 Numerology chúng tôi, với sự hỗ trợ tận tình của đội ngũ chuyên gia các mảng, từ chuyên môn tới pháp lý.</p>
+                    <ul>
+                        <li>Bản Báo cáo Thần số số lượng lớn</li>
+                        <li>Đội ngũ chuyên gia luận giải Thần số học</li>
+                        <li>Góp vốn mở quán Cafe</li>
+                        <li>Hỗ trợ tạo CLB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <div class="container contact-container">
+            <div class="form-container">
+                <h2>Đăng ký nhận thông tin</h2>
+                <form class="contact-form" id="contact-form">
+                    <input type="text" id="name" placeholder="Tên của bạn" required>
+                    <input type="email" id="email" placeholder="Email của bạn" required>
+                    <input type="tel" id="phonenumber" placeholder="Số điện thoại của bạn" required>
+                    <input type="date" id="birthday" placeholder="DD/MM/YYYY" required>
+                    <button name="button" value="OK" type="button" onclick="hello()">Đăng Ký</button>
+                    <script>  
+                        function hello(){  
+                          alert("Gửi thành công");  
+                        }  
+                      </script>
+                    <div id="form-message"></div>
+                </form>
+            </div>
+            <div class="qr-code" id="qr-code">
+                <img src="./img/QR đăng kí.png" alt="">
+                <h3>Tham gia nhóm Zalo</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 1616 Numerology. All rights reserved.</p>
+            <div class="contact-info">
+                <p>Fanpage: <a href="https://www.facebook.com/bingofigure/?locale=vi_VN">facebook.com/1616Numerology</a></p>
+                <p>TikTok: <a href="https://www.tiktok.com/@1616_numerology?lang=vi-VN">tiktok.com/@1616Numerology</a></p>
+                <p>Địa chỉ: S2.01 Vinhomes Smart City</p>
+                <p>Số điện thoại: 0338882002</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
