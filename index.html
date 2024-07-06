@@ -6,6 +6,7 @@
     <title>1616 Numerology</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -47,14 +48,15 @@
             <h2>Dịch vụ nổi bật</h2>
             <div class="box-container">
                 <div class="box">
-                    <h3>A. Cung cấp Bản báo cáo và luận giải</h3>
-                    <p>Chúng tôi sẽ gửi 01 bản báo cáo Thần số học dành riêng cho bạn, ngoài ra chúng tôi còn cung cấp thêm những dịch vụ khác, cam kết giúp bạn ứng dụng không chỉ Thần số mà còn những văn hóa lành mạnh vào cuộc sống.</p>
+                    <h3>A. Bản báo cáo và ứng dụng</h3>
+                    <p> Bản báo cáo thần số dành riêng cho bạn và ứng dụng thực tế vào cuộc sống qua những văn hóa lành mạnh</p>
                     <ul>
                         <li>Bản báo cáo 70 trang</li>
                         <li>03 buổi Cafe coach 1:2</li>
                         <li>Tham gia CLB thể thao</li>
                         <li>Tham gia nhóm văn hóa lối sống</li>
                         <li>Giới thiệu được 100k/bạn</li>
+                        <button class="li1">Giá niêm yết: 1.000.000</li>
                     </ul>
                 </div>
 
@@ -67,17 +69,19 @@
                         <li>03 chuyến du lịch</li>
                         <li>Tham gia nhóm văn hóa lối sống</li>
                         <li>Giới thiệu được tặng một vouche trị giá 1 triệu VND</li>
+                        <button class="li1">Giá niêm yết: 10.000.000</li>
                     </ul>
                 </div>
 
                 <div class="box">
                     <h3>C. Trở thành đại lý</h3>
-                    <p>Đặc quyền trở thành đại lý của đội nhóm 1616 Numerology chúng tôi, với sự hỗ trợ tận tình của đội ngũ chuyên gia các mảng, từ chuyên môn tới pháp lý.</p>
+                    <p>Đặc quyền trở thành đại lý của chúng tôi, với sự hỗ trợ tận tình của đội ngũ chuyên gia. </p>
                     <ul>
                         <li>Bản Báo cáo Thần số số lượng lớn</li>
                         <li>Đội ngũ chuyên gia luận giải Thần số học</li>
                         <li>Góp vốn mở quán Cafe</li>
                         <li>Hỗ trợ tạo CLB</li>
+                        <button class="li1">Giá niêm yết: 50.000.000 VND</li>
                     </ul>
                 </div>
             </div>
@@ -88,15 +92,15 @@
         <div class="container contact-container">
             <div class="form-container">
                 <h2>Đăng ký nhận thông tin</h2>
-                <form class="contact-form" id="contact-form">
-                    <input type="text" id="name" placeholder="Tên của bạn" required>
-                    <input type="email" id="email" placeholder="Email của bạn" required>
-                    <input type="tel" id="phonenumber" placeholder="Số điện thoại của bạn" required>
-                    <input type="date" id="birthday" placeholder="DD/MM/YYYY" required>
+                <form class="contact-form" id="contact-form" target="_self" onsubmit="return postToGoogle();"action="">
+                    <input type="text" id="nameField" name="entry.1027995480" placeholder="Tên của bạn" required>
+                    <input type="email" id="emailField" name="entry.811331298" placeholder="Email của bạn" required>
+                    <input type="tel" id="phonenumberField" name="entry.1679959855" placeholder="Số điện thoại của bạn" required>
+                    <input type="date" id="birthdayField" name="entry.1103172364_day/entry.1103172364_month/entry.1103172364_year" placeholder="DD/MM/YYYY" required>
                     <button name="button" type="reset" value="OK" type="button" onclick="hello()">Đăng Ký</button>
                     <script>  
                         function hello(){  
-                          alert("Gửi thành công");  
+                          alert("Gửi thành công"); 
                         }  
                       </script>
                     <div id="form-message"></div>
@@ -123,5 +127,79 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    {{/*  <script>
+        function postToGoogle() {
+            //Xử lý lấy dữ liệu các input vào biến tương ứng thông qua ID của input
+            var name = $("#nameField").val();
+            var email = $("#emailField").val();
+            var phone = $("#phonenumberField").val();
+            var birthiday = $("#birthdayField").val();
+            //Đoạn giữa này có thể sử dụng để validate dữ liệu 1 lần nữa hoăc... bỏ qua nhé :D
+        
+            //Xử lý gửi dữ liệu lên form
+            $.ajax({
+                //Chỉ định đích gửi dữ liệu đến: là form response đã tạo ở trên
+                url: "https://docs.google.com/forms/d/e/1FAIpQLSdLwhmAKnNeSB_llyMEGadBHYBnao49MN8cPM0LTciRsLekYQ/formResponse?",
+                //URL lấy từ link đã note ở trên nhé
+                data: { //gán các giá trị tương ứng vào các Input name tương ứng đã lấy ở trên
+                    "entry.1027995480": name,
+                    "entry.811331298": email,
+                    "entry.1679959855": phone,
+                    "entry.1103172364_day/entry.1103172364_month/entry.1103172364_year": birthday
+                },
+                type: "POST",
+                dataType: "jsonp", //các bạn có thể để xml, nhưng khi bật console lên sẽ thấy báo đỏ lòm vì ko cho cross, còn cái này nó vẫn cảnh báo nhưng màu xám thôi, ko đỏ :v
+                success: function(d)
+            {}, //do đã bảo ở trên là nó ko cho cross đâu, nên khi gửi data xong ko trả về success được, ko cần điền cái này nhé
+                error: function(x, y, z) {
+                    $('#success-msg').show(); //hiện ra cái mess báo thành công khi gửi xong
+                }
+            });
+        
+            return false;
+        }
+        
+    </script>  */}}
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new URLSearchParams({
+                'entry.1027995480': document.getElementById('name').value, // Thay thế bằng ID thực tế
+                'entry.811331298': document.getElementById('email').value, // Thay thế bằng ID thực tế
+                'entry.1679959855': document.getElementById('phonenumber').value, // Thay thế bằng ID thực tế
+                'entry.1103172364_day/entry.1103172364_month/entry.1103172364_year': document.getElementById('birthday').value, // Thay thế bằng ID thực tế
+ });
+
+            fetch('https://docs.google.com/forms/d/e/1FAIpQLSdLwhmAKnNeSB_llyMEGadBHYBnao49MN8cPM0LTciRsLekYQ/formResponse?', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData.toString()
+            })
+            .then(response => {
+                const formMessage = document.getElementById('form-message');
+                if (response.ok) {
+                    formMessage.innerHTML = '<div class="success-message">Đăng ký thành công!</div>';
+                    this.reset();
+                } else {
+                    formMessage.innerHTML = '<div class="error-message">Đăng ký thất bại, vui lòng thử lại.</div>';
+                }
+                setTimeout(() => {
+                    formMessage.innerHTML = '';
+                }, 3000);
+            })
+            .catch(error => {
+                console.error('Lỗi:', error);
+                const formMessage = document.getElementById('form-message');
+                formMessage.innerHTML = '<div class="error-message">Đăng ký thất bại, vui lòng thử lại.</div>';
+                setTimeout(() => {
+                    formMessage.innerHTML = '';
+                }, 3000);
+            });
+        });
+    </script>
 </body>
 </html>
