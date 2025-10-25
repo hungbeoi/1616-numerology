@@ -38,25 +38,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Form submit
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
-        const phone = document.getElementById('phonenumber').value;
+        const phone = document.getElementById('phone').value;  // ✅ Sửa lại đúng ID
         const birthday = document.getElementById('birthday').value;
 
-        fetch('https://script.google.com/macros/s/AKfycbzKzRtfDhIqoJqBZ0ZYee6TCCfIBKeHTrmkIesnMYdurPfAiUzjv2aiuyQrKecTSB2V/exec', {  // Replace YOUR_WEB_APP_URL with the URL from the Apps Script deployment
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name, email, message, phone, birthday })
-        })
+        fetch("http://localhost:3001/send", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({
+                name: nameValue,
+                email: emailValue,
+                phone: phoneValue,
+                birthday: birthdayValue
+             })
+            })
+
         .then(response => response.json())
         .then(data => {
-            if (data.status === 'success') {
+            console.log('Server response:', data);
+            if (data.result === 'success') {  // ✅ Sửa lại key đúng với Apps Script
                 showSuccessMessage();
                 form.reset();
             } else {
@@ -83,13 +89,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 
-    // Generate QR Code
-    const qrCode = new QRCode(qrCodeContainer, {
-        text: "https://zalo.me/g/dclxhb456",
-        width: 200,
-        height: 200,
-        colorDark : "#000000",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
-    });
+    // ✅ Thêm thư viện QRCode trước khi gọi đoạn này (trong index.html)
+    if (typeof QRCode !== 'undefined') {
+        new QRCode(qrCodeContainer, {
+            text: "https://zalo.me/g/dclxhb456",
+            width: 200,
+            height: 200,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    } else {
+        console.warn("⚠️ QRCode library chưa được load — kiểm tra lại script CDN trong index.html.");
+    }
 });
